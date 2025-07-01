@@ -14,14 +14,14 @@
 #include <asndlib.h>
 #include "ogc/lwp_watchdog.h"
 
-#include <fat.h>
+//#include <fat.h>
 #include "oggplayer.h"
 
 #include "liym/liym.h"
 #include "utililiys.h"
 #include "light.h"
 #include "primitives.h"
-#include "loadings.h"
+//#include "loadings.h"
 #include "liyt.h"
 
 #include "randomuncategorizeddata/lakeMtxTables.h"
@@ -311,12 +311,12 @@ int main(int argc,char **argv) {
 	guVector cubeAxis = {1,1,1};
 
 	//if (!fatInitDefault()) {
-	if (!fatInit(1, 1)) { //sector cache, default stdio
-		printf("fatInitDefault failure: terminating\n");
-		exit(-1);
-	}
+	//if (!fatInit(1, 1)) { //sector cache, default stdio
+	//	printf("fatInitDefault failure: terminating\n");
+	//	exit(-1);
+	//}
 
-		struct liymParseResults parse;
+		//struct liymParseResults parse;
 		
 	// Decompress lake mouth
 
@@ -1092,6 +1092,13 @@ int main(int argc,char **argv) {
 			}
 			#endif
 		#endif		
+
+
+		if (rmode->viHeight == 576) {
+			if((rframe % 6) == 0) {
+				rframe++;
+			}
+		}
 
 		if(play | advance) {
 			//printf("%d\r", rframe);
